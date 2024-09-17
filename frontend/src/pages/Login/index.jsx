@@ -6,9 +6,8 @@ import agroConectIMG from "../../assets/agroConect.svg";
 
 import { api } from '../../api';
 
-export const Register = () => {
+export const Login = () => {
   const [formData, setFormData] = useState({
-    usuario: "",
     email: "",
     senha: "",
     mensagem: "",
@@ -25,7 +24,6 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result = await api("http://localhost:5000/api/login", "POST", {
-      usuario: formData.usuario,
       email: formData.email,
       senha: formData.senha,
     });
@@ -44,23 +42,14 @@ export const Register = () => {
           {formData.mensagem}
         </div>
       )}
-      <LayoutComponents >
+
+      <LayoutComponents>
         <form className="login-form" onSubmit={handleSubmit}>
-          <span className="login-form-title"> Criar Conta </span>
+          <span className="login-form-title">Login</span>
 
           <span className="login-form-title">
-            <img src={agroConectIMG} alt="Jovem Programador" />
+            <img src={agroConectIMG} alt="Agro Conect" />
           </span>
-
-          <div className="wrap-input">
-            <input
-              className={formData.usuario !== "" ? "has-val input" : "input"}
-              type="usuario"
-              value={formData.usuario}
-              onChange={handleChange}
-            />
-            <span className="focus-input" data-placeholder="Usuario"></span>
-          </div>
 
           <div className="wrap-input">
             <input
@@ -83,17 +72,18 @@ export const Register = () => {
           </div>
 
           <div className="container-login-form-btn">
-            <button className="login-form-btn">Cadastrar</button>
+            <button className="login-form-btn">Login</button>
           </div>
 
           <div className="text-center">
-            <span className="txt1">Já possui conta? </span>
-            <Link className="txt2" to="/login">
-              Acessar com E-mail e Senha.
+            <span className="txt1">É novo por aqui?</span>
+
+            <Link className="txt2" to="/register">
+              Cadastre-se!
             </Link>
           </div>
         </form>
       </LayoutComponents>
     </>
-  )
-}
+  );
+};
