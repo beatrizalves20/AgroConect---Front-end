@@ -12,13 +12,17 @@ class Register(Resource):
         senha = data.get('senha')
 
         if not usuario or not email or not senha:
-            return {'message': 'Campos incompletos'}, 400
+            return {'message': 'Campos incompletos', 'type': 'error'}, 400
+        
+        usuario_existente = Usuario.query.filter_by(email=email).first()
+        if usuario_existente:
+            return {'message': 'Este usuário já existe', 'type': 'error'}, 400
 
         novo_usuario = Usuario(usuario=usuario, email=email, senha=senha)
         db.session.add(novo_usuario)
         db.session.commit()
 
-        return {'message': 'Usuário registrado com sucesso'}, 201
+        return {'message': 'Usuário registrado com sucesso', 'type': 'success'}, 201
 
 
 class Login(Resource):
@@ -30,11 +34,11 @@ class Login(Resource):
         senha = data.get('senha')
 
         if not email or not senha:
-            return {'message': 'E-mail e senha são obrigatórios'}, 400
+            return {'message': 'E-mail e senha são obrigatórios', 'type': 'error'}, 400
 
         usuario = Usuario.query.filter_by(email=email).first()
 
         if usuario and usuario.senha == senha:
-            return {'message': 'Login bem-sucedido'}, 200
+            return {'message': 'Login bem-sucedido', 'type': 'success'}, 200
         else:
-            return {'message': 'E-mail ou senha incorretos'}, 401
+            return {'message': 'E-mail ou senha incorretos', 'type': 'error'}, 401

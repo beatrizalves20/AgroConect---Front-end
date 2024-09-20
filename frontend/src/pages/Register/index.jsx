@@ -24,7 +24,7 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await api("http://localhost:5000/api/login", "POST", {
+    const result = await api("http://localhost:5000/api/register", "POST", {
       usuario: formData.usuario,
       email: formData.email,
       senha: formData.senha,
@@ -56,6 +56,7 @@ export const Register = () => {
             <input
               className={formData.usuario !== "" ? "has-val input" : "input"}
               type="usuario"
+              name="usuario"
               value={formData.usuario}
               onChange={handleChange}
             />
@@ -66,6 +67,7 @@ export const Register = () => {
             <input
               className={formData.email !== "" ? "has-val input" : "input"}
               type="email"
+              name="email"
               value={formData.email}
               onChange={handleChange}
             />
@@ -76,6 +78,7 @@ export const Register = () => {
             <input
               className={formData.senha !== "" ? "has-val input" : "input"}
               type="password"
+              name="senha"
               value={formData.senha}
               onChange={handleChange}
             />

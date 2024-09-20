@@ -55,6 +55,7 @@ export const Login = () => {
             <input
               className={formData.email !== "" ? "has-val input" : "input"}
               type="email"
+              name="email"
               value={formData.email}
               onChange={handleChange}
             />
@@ -65,6 +66,7 @@ export const Login = () => {
             <input
               className={formData.senha !== "" ? "has-val input" : "input"}
               type="password"
+              name="senha"
               value={formData.senha}
               onChange={handleChange}
             />

@@ -10,10 +10,9 @@ export const api = async (url, method, body) => {
 
         const data = await response.json();
 
-        if (response.ok) {
-            return { message: data.message, type: 'success' };
-        } else {
-            return { message: data.message, type: 'error' };
+        return {
+            message: data.message,
+            type: data.type,
         }
     } 
     catch (error) {
