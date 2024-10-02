@@ -1,0 +1,40 @@
+/* Definindo espaçamento entre os cartões */
+.card-group {
+    display: flex;
+    justify-content: space-between; /* Distribui os cartões com espaçamento igual */
+    gap: 20px; /* Espaçamento entre os cartões */
+    margin-bottom: 20px; /* Espaçamento abaixo dos cartões */
+    margin-top: 20px; /* Espaçamento acima dos cartões (entre o carrossel e os cartões) */
+    flex-wrap: wrap; /* Permite que os cartões se ajustem em várias linhas */
+}
+
+/* Definindo o tamanho das imagens para que todas fiquem iguais */
+.card-image img, /* Ou diretamente no CCardImage */
+.custom-card img, 
+.main-card img {
+    width: 100%; /* Faz com que a imagem ocupe a largura total do card */
+    height: 200px; /* Altura fixa para todas as imagens */
+    object-fit: cover; /* Garante que a imagem seja ajustada e cortada para caber na altura */
+    object-position: center; /* Centraliza a imagem, caso ela seja cortada */
+    display: block; /* Remove qualquer espaço ao redor das imagens */
+}
+
+/* Estilos personalizados para os cartões */
+.custom-card-body {
+    padding: 15px;
+}
+
+/* Definindo estilo para os cards */
+.custom-card {
+    border: 1px solid #ccc; /* Borda fina */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ao redor dos cards */
+    overflow: hidden; /* Evita que o conteúdo transborde das bordas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de transição suave */
+}
+
+/* Efeito ao passar o mouse */
+.custom-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte ao passar o mouse */
+    transform: translateY(-5px); /* Efeito de elevação do card */
+}

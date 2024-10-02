@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    font-family: "Roboto", serif;
+    text-align: justify; /* Justifica o corpo do texto */
+}
+
+body{
+    background: -webkit-transition(to left,#7ed957, #0097b2);
+    background: -o-transition(to left,#7ed957, #0097b2);
+    background:  -moz-transition(to left,#7ed957,#0097b2);
+    background: linear-gradient(to left, #7ed957, #0097b2);
+}
+
+.login-form{
+    width: 100%;
+}
+
+.login-form-title{ 
+    display: block;
+    font-size: 35px;
+    color: #86b2b8;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form-title h1{
+    display: block;
+    font-size: 35px;
+    color: #86b2b8;
+
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form-title p{
+    font-size: 15px;
+    color: #0097b2;
+}
+
+.login-form-title img {
+    width: 125px;
+}
+
+.wrap-input {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 37px;
+}
+
+.input{
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    border: none;
+    display: block;
+
+    width: 100%;
+    height: 45px;
+
+    background-color: transparent;
+
+    padding: 0 5px;
+}
+
+.focus-input{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+    color: #adadad;
+}
+
+.focus-input::before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    background: #0097b2;
+    background: -webkit-transition(to left, #0097b2, #7ed957);
+    background: -o-transition(to left, #0097b2, #7ed957);
+    background:  -moz-transition(to left, #0097b2, #7ed957);
+    background: linear-gradient(to left, #0097b2, #7ed957);
+}
+
+.focus-input::after{
+    font-size: 15px;
+    color: #999999;
+    line-height: 1.2;
+
+    content: attr(data-placeholder);
+
+    display: block;
+    width: 100px;
+    position: absolute;
+    top: 16px;
+    left: 0px;
+
+    padding-left: 5px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.input:focus {
+    outline: 0;
+}
+
+.input:focus+.focus-input::after {
+    top: -15px;
+}
+
+.input:focus+.focus-input::before {
+    width: 100%;
+}
+
+.has-val+.focus-input::after{
+    top: -15px;
+}
+
+.has-val+.focus-input::before{
+    width: 100%;
+}
+
+.container-login-form-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 13px;
+}
+
+.login-form-btn{
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+
+    line-height: 1.2;
+
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 50px;
+    background: #0097b2;
+    background: -webkit-transition(to left, #0097b2, #7ed957);
+    background: -o-transition(to left, #0097b2, #7ed957);
+    background:  -moz-transition(to left, #0097b2, #7ed957);
+    background: linear-gradient(to left, #0097b2, #7ed957);
+}
+
+.login-form-btn:hover{
+    cursor: pointer;
+}
+
+.text-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 50px;
+}
+
+.txt1 {
+    font-size: 14px;
+    color: #adadad;
+    line-height: 1.5;
+    padding-right: 5px;
+}
+
+.txt2 {
+    font-size: 14px;
+    color: #7ed957;
+    line-height: 1.5;
+    text-decoration: none;
+
+}
+
+/* .mensagem {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 0;
+    font-size: 1rem;
+    text-align: center;
+} */
+
+.mensagem {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.mensagem.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mensagem.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.justify-content-end{
+    color: #155724;
+    text-decoration: none;
+    line-height: 1.2;
+    text-align: center;
+    transition: .2s;
+    padding: 0 40px;
+    list-style-type: none;
+}
+
+
+.justify-content-end a:hover{
+    color: #0097b2;
+    transform: scale(1.05);
+}
